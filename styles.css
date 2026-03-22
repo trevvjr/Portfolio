@@ -1,0 +1,90 @@
+body {
+    background-color: #000000; /* black */
+    color: #ffffff; /* white */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #ffffff; /* white */
+    text-align: center;
+    margin: 20px 0;
+}
+
+p, ul, li {
+    color: #ffffff; /* white */
+}
+
+header {
+    background-color: #000000; /* black */
+    padding: 40px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+nav a {
+    color: #007bff; /* blue */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #ffffff; /* white */
+}
+
+#contact a {
+    color: #007bff; /* blue */
+    text-decoration: none;
+}
+
+#contact a:hover {
+    color: #ffffff; /* white */
+}
+
+main {
+    padding: 40px;
+}
+
+section {
+    margin-bottom: 60px;
+}
+
+ul {
+    list-style: none;
+    text-align: center;
+    padding: 0;
+}
+
+li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+.project {
+    background-color: #111111; /* slightly lighter black for contrast */
+    padding: 20px;
+    margin: 20px 0;
+    border-left: 5px solid #007bff; /* blue accent */
+    border-radius: 5px;
+}
+
+footer {
+    background-color: #000000; /* black */
+    color: #ffffff; /* white */
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
