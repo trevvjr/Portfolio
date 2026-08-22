@@ -1,56 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trevan Davis Jr - Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trevan Davis Jr - Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Trevan Davis Jr</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section id="about">
-            <h2>About Me</h2>
-            <p>Welcome to my portfolio. I am Trevan Davis Jr, a passionate developer with a love for creating innovative solutions.</p>
-        </section>
-        <section id="skills">
-            <h2>Skills</h2>
-            <ul>
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>JavaScript</li>
-                <li>Python</li>
-            </ul>
-        </section>
-        <section id="projects">
-            <h2>Projects</h2>
-            <div class="project">
-                <h3>Project 1</h3>
-                <p>Description of project 1.</p>
-            </div>
-            <div class="project">
-                <h3>Project 2</h3>
-                <p>Description of project 2.</p>
-            </div>
-        </section>
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>Email: <a href="mailto:trevvjr07@gmail.com">trevvjr07@gmail.com</a></p>
-            <p>LinkedIn: <a href="#">LinkedIn Profile</a></p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2026 Trevan Davis Jr</p>
-    </footer>
+  <header>
+    <div class="container">
+      <nav>
+        <a class="brand" href="#">Trevan Davis Jr</a>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div class="hero-inner">
+        <div>
+          <p class="eyebrow">Full stack developer & problem solver</p>
+          <h1 class="hero-title">Building modern experiences with clean code and bold ideas.</h1>
+          <p class="hero-subtitle">I’m Trevan Davis Jr, a passionate web developer focused on polished interfaces, responsive design, and thoughtful interactions. Explore my work and the tools I love using.</p>
+        </div>
+
+        <div class="hero-actions">
+          <a class="btn" href="#projects">View Projects</a>
+          <a class="btn secondary" href="#contact">Get in Touch</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section container">
+      <div class="section-heading">
+        <h2>About Me</h2>
+      </div>
+      <div class="card">
+        <p>Welcome to my portfolio. I am Trevan Davis Jr, a 19 year old soon-to-be developer with a passion for building interfaces, expanding my skillset, and solving problems using clean, efficient code.</p>
+      </div>
+    </section>
+
+    <section id="skills" class="section container">
+      <div class="section-heading">
+        <h2>Skills</h2>
+      </div>
+      <div class="skills-list">
+        <span class="skill-pill">HTML</span>
+        <span class="skill-pill">CSS</span>
+        <span class="skill-pill">JavaScript</span>
+        <span class="skill-pill">Python</span>
+        <span class="skill-pill">Responsive Design</span>
+        <span class="skill-pill">UI/UX</span>
+      </div>
+    </section>
+
+    <section id="projects" class="section container">
+      <div class="section-heading">
+        <h2>Projects</h2>
+      </div>
+      <div class="projects-list">
+        <a href="FES Project/index.html" class="project-card project-link">
+          <h3>FES Project</h3>
+          <p>A polished anime library interface with live search, filtering, and responsive card design. Built with JavaScript for a smoother content browsing experience.</p>
+          <div class="project-meta">HTML • CSS • JavaScript</div>
+        </a>
+        <a href="https://trevan-internship.vercel.app/" class="project-card project-link" target="_blank" rel="noopener noreferrer">
+          <h3>Ultraverse</h3>
+          <p>A modern internship project featuring polished UI, responsive structure, and production-style page composition. Built to highlight front-end implementation quality and attention to detail.</p>
+          <div class="project-meta">HTML • CSS • JavaScript</div>
+        </a>
+        <a href="Rock paper scissors/index.html" class="project-card project-link">
+          <h3>Rock Paper Scissors</h3>
+          <p>An interactive game experience with animation and score tracking. Demonstrates user input handling, game logic, and responsive layout.</p>
+          <div class="project-meta">HTML • CSS • JavaScript</div>
+        </a>
+        <a href="Percy Jackson/index.html" class="project-card project-link">
+          <h3>Percy Jackson: Battle of the Labyrinth</h3>
+          <p>An immersive text-based adventure game featuring dynamic storytelling, health tracking, and game state saving. Built with vanilla JavaScript for an engaging narrative experience.</p>
+          <div class="project-meta">HTML • CSS • JavaScript</div>
+        </a>
+        <a href="FES Project React/dist/index.html" class="project-card project-link">
+          <h3>React Anime Library</h3>
+          <p>A modern React-based anime library application with component-driven architecture, state management, and dynamic rendering. Showcases advanced React patterns and modern web development practices.</p>
+          <div class="project-meta">React • Vite • JavaScript</div>
+        </a>
+        <a href="Treact project/index.html" class="project-card project-link">
+          <h3>Treact Project</h3>
+          <p>A responsive marketing website template with modern design, smooth interactions, and professional layout. Demonstrates CSS styling, layout techniques, and responsive web design principles.</p>
+          <div class="project-meta">HTML • CSS • JavaScript</div>
+        </a>
+      </div>
+    </section>
+
+    <section id="contact" class="section container">
+      <div class="section-heading">
+        <h2>Contact</h2>
+      </div>
+      <div class="card contact-info">
+        <p>Email: <a href="mailto:trevvjr07@gmail.com">trevvjr07@gmail.com</a></p>
+        <p>LinkedIn: <a href="#">linkedin.com/in/your-profile</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container">
+    <p>&copy; 2026 Trevan Davis Jr</p>
+  </footer>
 </body>
 </html>

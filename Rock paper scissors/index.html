@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock Paper Scissors</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="game-wrap">
+    <h1>Rock Paper Scissors</h1>
+    <p class="subtitle">First to 5 wins.</p>
+
+    <section class="scoreboard" aria-live="polite">
+      <div class="score-card">
+        <p>You</p>
+        <strong id="playerScore">0</strong>
+      </div>
+      <div class="score-card">
+        <p>Computer</p>
+        <strong id="computerScore">0</strong>
+      </div>
+    </section>
+
+    <section class="choices" aria-label="Choose your move">
+      <button type="button" data-choice="rock">Rock</button>
+      <button type="button" data-choice="paper">Paper</button>
+      <button type="button" data-choice="scissors">Scissors</button>
+    </section>
+
+    <p id="roundResult" class="result">Pick a move to start.</p>
+    <button id="resetBtn" type="button" class="reset-btn">Reset Game</button>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

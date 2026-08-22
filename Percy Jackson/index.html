@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Percy Jackson: Battle of the Labyrinth - Adventure Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="header">
+            <h1>⚡ Percy Jackson: Battle of the Labyrinth ⚡</h1>
+            <p class="subtitle">An Interactive Adventure</p>
+        </div>
+        
+        <div class="game-status">
+            <div class="health-bar">
+                <p>Health: <span id="health">100</span>/100</p>
+                <div class="bar-container">
+                    <div class="bar-fill" id="healthBar"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="gameContent">
+            <div id="storyText" class="story-text"></div>
+            <div id="choicesContainer" class="choices-container"></div>
+        </div>
+
+        <div class="button-container">
+            <button id="saveGame" class="save-button">💾 Save Game</button>
+            <button id="loadGame" class="load-button">📂 Load Game</button>
+            <button id="resetGame" class="reset-button">🔄 New Game</button>
+        </div>
+        
+        <div id="saveNotification" class="save-notification"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
