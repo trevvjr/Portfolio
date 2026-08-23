@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Anime Details</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="main-header">
+    <div class="header-overlay">
+      <nav class="nav-bar" aria-label="Main navigation">
+        <a class="brand" href="index.html">Anime Library</a>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html">Anime List</a></li>
+          <li><a href="#">Top Rated</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-controls">
+        <button id="themeToggle" class="theme-btn" aria-pressed="false">Light Mode</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container detail-container">
+    <a href="index.html" class="back-link">← Back to list</a>
+
+    <article id="detailCard" class="detail-card">
+      <img id="detailImg" src="" alt="">
+      <div class="detail-body">
+        <h1 id="detailTitle"></h1>
+        <p id="detailYear" class="muted"></p>
+        <div id="detailDesc"></div>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    © 2026 Anime Library — Powered by AniList API
+  </footer>
+
+  <script src="detail.js"></script>
+</body>
+</html>

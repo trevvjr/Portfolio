@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout - Radiant Skin Co.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="store-header">
+    <h1>Checkout</h1>
+    <p>Complete your order and get glowing skin.</p>
+  </header>
+
+  <main class="container" style="grid-template-columns: 1fr;">
+    <section class="shop-content" style="max-width: 760px; margin: auto;">
+      <article class="product-card">
+        <h2>Order Summary</h2>
+        <ul id="checkout-items" class="cart-items"></ul>
+        <div class="cart-summary">
+          <span>Total:</span>
+          <strong id="checkout-total">$0.00</strong>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <h2>Customer Details</h2>
+        <form id="checkout-form">
+          <label>
+            Full Name
+            <input type="text" id="name" required />
+          </label>
+          <label>
+            Email
+            <input type="email" id="email" required />
+          </label>
+          <label>
+            Shipping Address
+            <textarea id="address" rows="3" required></textarea>
+          </label>
+          <label>
+            Payment Method
+            <select id="payment" required>
+              <option value="">Choose</option>
+              <option value="card">Credit Card</option>
+              <option value="paypal">PayPal</option>
+            </select>
+          </label>
+          <button type="submit" class="add-cart" style="width:auto;">Place Order</button>
+        </form>
+        <p id="confirmation" style="margin-top:1rem; font-weight:700;"></p>
+      </article>
+
+      <p style="text-align:center; margin-top:1rem;"><a href="index.html" style="color: var(--accent); text-decoration:none;">Continue Shopping</a></p>
+    </section>
+  </main>
+
+  <script>
+    const cart = JSON.parse(localStorage.getItem('radiantSkinCart') || '{}');
+    const checkoutItemsEl = document.getElementById('checkout-items');
+    const checkoutTotalEl = document.getElementById('checkout-total');
+    const confirmationEl = document.getElementById('confirmation');
+
+    function formatPrice(value) {
+      return '$' + value.toFixed(2);
+    }
+
+    function renderCheckout() {
+      if (!Object.keys(cart).length) {
+        checkoutItemsEl.innerHTML = '<li>Your cart is empty. Please add items and return to checkout.</li>';
+        return;
+      }
+
+      let total = 0;
+      checkoutItemsEl.innerHTML = '';
+
+      Object.values(cart).forEach(item => {
+        const subtotal = item.price * item.quantity;
+        total += subtotal;
+
+        const li = document.createElement('li');
+        li.textContent = `${item.name} x ${item.quantity} — ${formatPrice(subtotal)}`;
+        checkoutItemsEl.appendChild(li);
+      });
+
+      checkoutTotalEl.textContent = formatPrice(total);
+    }
+
+    document.getElementById('checkout-form').addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (!Object.keys(cart).length) {
+        confirmationEl.textContent = 'Your cart is empty; cannot process order.';
+        return;
+      }
+
+      localStorage.removeItem('radiantSkinCart');
+      confirmationEl.textContent = 'Order placed! Thank you for shopping with Radiant Skin Co.';
+      document.getElementById('checkout-form').reset();
+    });
+
+    renderCheckout();
+  </script>
+</body>
+</html>
