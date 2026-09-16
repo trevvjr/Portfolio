@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Momentum · Habit Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="app">
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-icon">🔥</span>
+      <span class="brand-name">Momentum</span>
+    </div>
+
+    <nav class="view-tabs" id="viewTabs">
+      <button class="tab-btn active" data-view="today">Today</button>
+      <button class="tab-btn" data-view="habits">All Habits</button>
+      <button class="tab-btn" data-view="insights">Insights</button>
+    </nav>
+
+    <div class="topbar-actions">
+      <button class="icon-btn" id="exportBtn" title="Export data">⭳</button>
+      <button class="icon-btn" id="importBtn" title="Import data">⭱</button>
+      <input type="file" id="importFile" accept="application/json" hidden />
+      <button class="primary-btn" id="addHabitBtn">+ New Habit</button>
+    </div>
+  </header>
+
+  <main class="content">
+
+    <!-- Stats overview -->
+    <section class="stats-row" id="statsRow">
+      <div class="stat-card">
+        <div class="ring-wrap">
+          <svg class="ring" viewBox="0 0 120 120">
+            <circle class="ring-bg" cx="60" cy="60" r="52"></circle>
+            <circle class="ring-progress" id="todayRing" cx="60" cy="60" r="52"></circle>
+          </svg>
+          <div class="ring-label">
+            <span id="todayPct">0%</span>
+            <small>Today</small>
+          </div>
+        </div>
+        <div class="stat-info">
+          <h3>Today's Progress</h3>
+          <p id="todayDetail">0 of 0 habits complete</p>
+        </div>
+      </div>
+
+      <div class="stat-card simple">
+        <span class="stat-icon">⚡</span>
+        <div class="stat-info">
+          <h3 id="currentStreakTop">0</h3>
+          <p>Best Active Streak</p>
+        </div>
+      </div>
+
+      <div class="stat-card simple">
+        <span class="stat-icon">🏆</span>
+        <div class="stat-info">
+          <h3 id="longestStreakTop">0</h3>
+          <p>Longest Streak Ever</p>
+        </div>
+      </div>
+
+      <div class="stat-card simple">
+        <span class="stat-icon">📈</span>
+        <div class="stat-info">
+          <h3 id="completionRateTop">0%</h3>
+          <p>30-Day Completion</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TODAY VIEW -->
+    <section class="view-panel" id="view-today">
+      <div class="panel-header">
+        <h2>Today · <span id="todayDate">—</span></h2>
+      </div>
+      <div class="habit-list" id="todayList"></div>
+      <div class="empty-state" id="todayEmpty" hidden>
+        <p>No habits scheduled for today.</p>
+        <button class="primary-btn" id="emptyAddBtn">Create your first habit</button>
+      </div>
+    </section>
+
+    <!-- ALL HABITS VIEW -->
+    <section class="view-panel" id="view-habits" hidden>
+      <div class="panel-header">
+        <h2>All Habits</h2>
+      </div>
+      <div class="habit-grid" id="habitGrid"></div>
+    </section>
+
+    <!-- INSIGHTS VIEW -->
+    <section class="view-panel" id="view-insights" hidden>
+      <div class="panel-header">
+        <h2>Weekly Overview</h2>
+      </div>
+      <div class="panel weekly-chart-panel">
+        <div class="weekly-chart" id="weeklyChart"></div>
+      </div>
+
+      <div class="panel-header">
+        <h2>Yearly Activity</h2>
+        <select id="heatmapHabitSelect" class="habit-select"></select>
+      </div>
+      <div class="panel heatmap-panel">
+        <div class="heatmap-scroll">
+          <div class="heatmap-grid" id="yearHeatmap"></div>
+        </div>
+        <div class="heatmap-legend">
+          <span>Less</span>
+          <span class="legend-swatch l0"></span>
+          <span class="legend-swatch l1"></span>
+          <span class="legend-swatch l2"></span>
+          <span class="legend-swatch l3"></span>
+          <span class="legend-swatch l4"></span>
+          <span>More</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    <p>Your habit data is stored locally in this browser · Built for portfolio demo purposes</p>
+  </footer>
+</div>
+
+<!-- Habit Modal -->
+<div class="modal-overlay" id="habitModalOverlay" hidden>
+  <div class="modal">
+    <div class="modal-header">
+      <h3 id="modalTitle">New Habit</h3>
+      <button class="icon-btn" id="closeModalBtn">✕</button>
+    </div>
+    <form id="habitForm">
+      <label class="field">
+        <span>Name</span>
+        <input type="text" id="habitName" placeholder="e.g. Drink water" required maxlength="40" />
+      </label>
+
+      <div class="field-row">
+        <label class="field">
+          <span>Icon</span>
+          <input type="text" id="habitIcon" placeholder="💧" maxlength="2" value="✅" />
+        </label>
+        <label class="field">
+          <span>Color</span>
+          <input type="color" id="habitColor" value="#7c5cff" />
+        </label>
+        <label class="field">
+          <span>Daily target</span>
+          <input type="number" id="habitTarget" min="1" max="20" value="1" />
+        </label>
+      </div>
+
+      <fieldset class="field">
+        <span>Repeat on</span>
+        <div class="day-picker" id="dayPicker">
+          <button type="button" data-day="0">S</button>
+          <button type="button" data-day="1">M</button>
+          <button type="button" data-day="2">T</button>
+          <button type="button" data-day="3">W</button>
+          <button type="button" data-day="4">T</button>
+          <button type="button" data-day="5">F</button>
+          <button type="button" data-day="6">S</button>
+        </div>
+        <small class="hint">Leave all selected for a daily habit.</small>
+      </fieldset>
+
+      <div class="modal-actions">
+        <button type="button" class="ghost-btn" id="deleteHabitBtn" hidden>Delete Habit</button>
+        <button type="submit" class="primary-btn">Save Habit</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Confirm Modal -->
+<div class="modal-overlay" id="confirmOverlay" hidden>
+  <div class="modal confirm-modal">
+    <p id="confirmMsg">Are you sure?</p>
+    <div class="modal-actions">
+      <button class="ghost-btn" id="confirmCancel">Cancel</button>
+      <button class="primary-btn danger" id="confirmOk">Delete</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>

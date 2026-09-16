@@ -1,43 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Percy Jackson: Battle of the Labyrinth - Adventure Game</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="game-container">
-        <div class="header">
-            <h1>⚡ Percy Jackson: Battle of the Labyrinth ⚡</h1>
-            <p class="subtitle">An Interactive Adventure</p>
-        </div>
-        
-        <div class="game-status">
-            <div class="health-bar">
-                <p>Health: <span id="health">100</span>/100</p>
-                <div class="bar-container">
-                    <div class="bar-fill" id="healthBar"></div>
-                </div>
-            </div>
-        </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Percy Jackson: Labyrinth of Kronos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="game-container">
+      <header class="header">
+        <img
+          class="cover-image"
+          src="assets/percy-cover.svg"
+          alt="Percy Jackson cover art showing Percy with a golden trident and the Labyrinth"
+        />
+        <h1>Percy Jackson</h1>
+        <p class="subtitle">Labyrinth of Kronos</p>
+      </header>
 
-        <div id="gameContent">
-            <div id="storyText" class="story-text"></div>
-            <div id="choicesContainer" class="choices-container"></div>
+      <section class="game-status" aria-label="Game status">
+        <div class="health-bar">
+          <p>Health: <span id="health">100</span></p>
+          <div class="bar-container" aria-label="Player health bar">
+            <div id="healthBar" class="bar-fill"></div>
+          </div>
         </div>
+      </section>
 
-        <div class="button-container">
-            <button id="saveGame" class="save-button">💾 Save Game</button>
-            <button id="loadGame" class="load-button">📂 Load Game</button>
-            <button id="resetGame" class="reset-button">🔄 New Game</button>
-        </div>
-        
-        <div id="saveNotification" class="save-notification"></div>
-    </div>
+      <section id="gameContent" aria-live="polite">
+        <div id="storyText" class="story-text"></div>
+        <div id="choicesContainer" class="choices-container"></div>
+      </section>
+
+      <div class="button-container">
+        <button id="saveGame" class="save-button" type="button">Save Game</button>
+        <button id="loadGame" class="load-button" type="button">Load Game</button>
+      </div>
+
+      <button id="resetGame" class="reset-button" type="button">Restart Story</button>
+      <div id="saveNotification" class="save-notification" aria-live="polite"></div>
+    </main>
+
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

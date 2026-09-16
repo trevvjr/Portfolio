@@ -77,6 +77,16 @@ body::before {
     margin-bottom: 1.35rem;
 }
 
+.cover-image {
+    display: block;
+    width: min(100%, 720px);
+    margin: 0 auto 1.1rem;
+    border-radius: 18px;
+    border: 1px solid var(--border);
+    box-shadow: 0 20px 40px rgba(5, 12, 25, 0.45);
+    background: rgba(9, 17, 30, 0.7);
+}
+
 h1 {
     font-family: "Cinzel", Georgia, serif;
     font-size: clamp(1.65rem, 3.8vw, 2.7rem);

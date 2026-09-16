@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Skyline Weather</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="app" id="app" data-condition="clear" data-daytime="day">
+  <div class="bg-fx">
+    <div class="sun-moon"></div>
+    <div class="clouds"></div>
+    <div class="rain"></div>
+    <div class="snow"></div>
+    <div class="stars"></div>
+  </div>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-icon">☀️</span>
+      <span class="brand-name">Skyline<span>Weather</span></span>
+    </div>
+
+    <form class="search" id="searchForm" autocomplete="off">
+      <input type="text" id="searchInput" placeholder="Search a city or place…" />
+      <div id="suggestions" class="suggestions"></div>
+      <button type="submit" aria-label="Search">🔍</button>
+    </form>
+
+    <div class="topbar-actions">
+      <button id="geoBtn" class="icon-btn" title="Use my location">📍</button>
+      <button id="unitToggle" class="unit-toggle" title="Toggle units">°F</button>
+    </div>
+  </header>
+
+  <main class="content">
+    <section class="loading" id="loadingState">
+      <div class="spinner"></div>
+      <p>Fetching skies…</p>
+    </section>
+
+    <section class="error" id="errorState" hidden>
+      <p id="errorMsg">Something went wrong.</p>
+    </section>
+
+    <section class="dashboard" id="dashboard" hidden>
+      <!-- Current conditions -->
+      <div class="panel current-panel">
+        <div class="current-top">
+          <div class="place">
+            <h1 id="placeName">—</h1>
+            <p id="placeMeta">—</p>
+          </div>
+          <div class="now-time" id="nowTime">—</div>
+        </div>
+
+        <div class="current-main">
+          <div class="temp-block">
+            <span class="temp-icon" id="tempIcon">☀️</span>
+            <span class="temp-value" id="tempValue">--°</span>
+          </div>
+          <div class="current-desc">
+            <p class="condition-text" id="conditionText">—</p>
+            <p class="feels-like">Feels like <span id="feelsLike">--°</span></p>
+          </div>
+        </div>
+
+        <div class="stat-grid">
+          <div class="stat">
+            <span class="stat-label">Humidity</span>
+            <span class="stat-value" id="humidity">--%</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Wind</span>
+            <span class="stat-value" id="wind">-- km/h</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Pressure</span>
+            <span class="stat-value" id="pressure">-- hPa</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">UV Index</span>
+            <span class="stat-value" id="uv">--</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Visibility</span>
+            <span class="stat-value" id="visibility">-- km</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Precipitation</span>
+            <span class="stat-value" id="precip">-- mm</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Map -->
+      <div class="panel map-panel">
+        <div class="panel-header">
+          <h2>Map</h2>
+          <span class="coords" id="coords">--, --</span>
+        </div>
+        <div id="map"></div>
+      </div>
+
+      <!-- Hourly forecast -->
+      <div class="panel hourly-panel">
+        <div class="panel-header">
+          <h2>Next 24 Hours</h2>
+        </div>
+        <div class="hourly-scroll" id="hourlyScroll"></div>
+      </div>
+
+      <!-- Daily forecast -->
+      <div class="panel daily-panel">
+        <div class="panel-header">
+          <h2>7-Day Forecast</h2>
+        </div>
+        <div class="daily-list" id="dailyList"></div>
+      </div>
+
+      <!-- Sun/wind extras -->
+      <div class="panel extras-panel">
+        <div class="extra-card">
+          <h3>Sunrise &amp; Sunset</h3>
+          <div class="sun-track">
+            <div class="sun-track-line"></div>
+            <div class="sun-track-dot" id="sunDot"></div>
+          </div>
+          <div class="sun-times">
+            <span id="sunrise">--:--</span>
+            <span id="sunset">--:--</span>
+          </div>
+        </div>
+        <div class="extra-card">
+          <h3>Wind Direction</h3>
+          <div class="compass">
+            <div class="compass-needle" id="compassNeedle"></div>
+          </div>
+          <p id="windDirText">--</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>Data from Open-Meteo &amp; OpenStreetMap · Built for portfolio demo purposes</p>
+  </footer>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="700" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#071B2B"/>
+      <stop offset="0.5" stop-color="#0B2B45"/>
+      <stop offset="1" stop-color="#040D18"/>
+    </linearGradient>
+    <linearGradient id="sea" x1="571" y1="246" x2="1103" y2="610" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#58D1FF"/>
+      <stop offset="1" stop-color="#164C84"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="303" y1="156" x2="663" y2="516" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F9E7A7"/>
+      <stop offset="0.55" stop-color="#D7B666"/>
+      <stop offset="1" stop-color="#9A6F2A"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="700" rx="36" fill="url(#bg)"/>
+  <circle cx="978" cy="126" r="88" fill="#F4D27E" fill-opacity="0.11"/>
+  <circle cx="1035" cy="180" r="130" fill="#7ED8FF" fill-opacity="0.08"/>
+  <path d="M0 460C117 388 203 376 320 406C442 437 518 510 653 505C776 499 907 446 1037 451C1108 454 1170 470 1200 485V700H0V460Z" fill="url(#sea)"/>
+  <path d="M0 544C118 531 182 484 289 489C411 494 500 552 622 562C760 573 884 519 1042 530C1110 535 1163 549 1200 565V700H0V544Z" fill="#0D1F35" fill-opacity="0.9"/>
+  <path d="M585 118L657 241L783 274L668 372L693 498L585 440L477 498L502 372L387 274L513 241L585 118Z" fill="url(#gold)" opacity="0.18"/>
+  <path d="M527 94L605 257L786 280L650 398L688 560L527 468L366 560L404 398L268 280L449 257L527 94Z" fill="url(#gold)" fill-opacity="0.15"/>
+  <g opacity="0.92">
+    <path d="M465 501L585 226L706 501H465Z" fill="#F3E2B9" fill-opacity="0.96"/>
+    <path d="M585 226L637 334L706 501H585V226Z" fill="#DDBE74" fill-opacity="0.95"/>
+    <path d="M585 226L532 334L465 501H585V226Z" fill="#B9893F" fill-opacity="0.8"/>
+    <path d="M545 337L585 270L625 337H545Z" fill="#122947" fill-opacity="0.9"/>
+    <path d="M534 325L585 166L637 325H534Z" fill="#1B385D" fill-opacity="0.88"/>
+    <path d="M584 172L641 275H528L584 172Z" fill="#D8B975" fill-opacity="0.75"/>
+    <path d="M432 487L585 420L742 487" stroke="#F2E4B9" stroke-width="12" stroke-linecap="round"/>
+    <path d="M585 420V502" stroke="#F2E4B9" stroke-width="12" stroke-linecap="round"/>
+  </g>
+  <g opacity="0.7">
+    <path d="M170 212C218 180 257 182 290 214" stroke="#A7DFFF" stroke-width="8" stroke-linecap="round"/>
+    <path d="M891 204C955 165 1014 171 1067 219" stroke="#A7DFFF" stroke-width="8" stroke-linecap="round"/>
+    <path d="M102 306C164 279 205 283 246 312" stroke="#A7DFFF" stroke-width="8" stroke-linecap="round"/>
+    <path d="M952 289C1009 258 1062 262 1103 294" stroke="#A7DFFF" stroke-width="8" stroke-linecap="round"/>
+  </g>
+  <g fill="#E5F8FF" font-family="Georgia, serif" letter-spacing="2px">
+    <text x="120" y="120" font-size="64" font-weight="700">PERCY JACKSON</text>
+    <text x="120" y="180" font-size="22" fill="#B7E3FF">LABYRINTH OF KRONOS</text>
+  </g>
+</svg>
